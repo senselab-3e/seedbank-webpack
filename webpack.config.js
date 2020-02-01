@@ -43,10 +43,8 @@ module.exports = {
                              ident: 'postcss',
                              plugins: () => [
                                  autoprefixer({
-                                     browsers: [
-                                        "> 1%",
-                                        "last 2 versions"
-                                     ]
+                                    overrideBrowserslist: 
+                                        "defaults"  
                                  })
                              ]
                          }

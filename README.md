@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+Developement notes I'm making for myself for various changes:
+
 *small note. the original install for webpack encountered a breaking change big css-loader. "In css-loader 3.0.0, there was a breaking change with the localIdentName configuration option:" The error message looked like 
 
 ERROR in ./src/index.css (./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/postcss-loader/src??postcss!./src/index.css)
@@ -35,3 +48,15 @@ devServer: {
       },
 
       to the webpack config file which succeeded in changing the port running location - but still it doesn't show up in vagrant - which has to do with built in permissions the bootcamp put in. it does runs on my local machine... so it's still a VM problem - but i might just have to accept this. 
+
+
+      // next the debug for the browserlist. for now i'm using https://github.com/postcss/autoprefixer
+
+      .plugins: () => [
+                                 autoprefixer({
+                                    overrideBrowserslist: 
+                                        "defaults"  
+                                 })
+                             ]
+
+                             because when i put browserlist, which was to fix the warnings coming up when i used browsers, it then threw more errors asking me to replace that object with overrideBrowserlist. however, all the documentation online advises against using this. no warnings now come up on compiling but i will return to the documentation later to try adding a .browserslistrc config  to share target browsers with Babel, ESLint and Stylelint. I already added a browserlist key to the json, but that alone isn't enough (warnings still thrown)... even though it's supposed to be. 

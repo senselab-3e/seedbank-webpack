@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "PORT=3001 webpack-dev-server --open --hot --mode development",
+    "start": "webpack-dev-server --open --hot --mode development",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -15,7 +15,12 @@
   "keywords": [],
   "author": "ceph jj mts",
   "license": "ISC",
-  "browserslist": "> 1%,last 2 versions",
+    "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ],
   "bugs": {
     "url": "https://github.com/senselab-3e/seedbank-webpack/issues"
   },
