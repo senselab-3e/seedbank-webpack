@@ -28,3 +28,10 @@ to  options: {
 after i did this, it successfully compiled, while still having minor separate issues over brower and browerlist nomenclatur differences between the json and webconfig file. but the above fix wasn't the full 'hack' method that many articles cited - and so i don't know exactly if what i did will cause issues later. the hack included this: https://github.com/zeit/next-plugins/issues/392#issuecomment-475845330. 
 
 >personal notes. as I suspected, the reason my app won't run on the default port 8080 that webpack creates, is only because of limitations on my VM (which were set by lighthouse). It is working, when i run it on my local machine. so far attempts to specify an alternative port 3000 in the json or webpack.config file have not worked. but at least i know it's a separate issue, and not something inherintly wrong with the code here in the webpack files.
+
+ok. so i added the object   
+devServer: {
+        port: 3000
+      },
+
+      to the webpack config file which succeeded in changing the port running location - but still it doesn't show up in vagrant - which has to do with built in permissions the bootcamp put in. it does runs on my local machine... so it's still a VM problem - but i might just have to accept this. 
