@@ -1,7 +1,7 @@
 {
   "name": "seebank-webpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Webpack + Babel + React Starter bolerplate ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
