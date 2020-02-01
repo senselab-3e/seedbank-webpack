@@ -60,3 +60,12 @@ devServer: {
                              ]
 
                              because when i put browserlist, which was to fix the warnings coming up when i used browsers, it then threw more errors asking me to replace that object with overrideBrowserlist. however, all the documentation online advises against using this. no warnings now come up on compiling but i will return to the documentation later to try adding a .browserslistrc config  to share target browsers with Babel, ESLint and Stylelint. I already added a browserlist key to the json, but that alone isn't enough (warnings still thrown)... even though it's supposed to be. 
+
+
+Autoprefixer uses Browserslist, so you can specify the browsers you want to target in your project with queries like > 5% (see Best Practices).
+
+The best way to provide browsers is a .browserslistrc file in your project root, or by adding a browserslist key to your package.json.
+
+We recommend the use of these options over passing options to Autoprefixer so that the config can be shared with other tools such as babel-preset-env and Stylelint.
+
+See Browserslist docs for queries, browser names, config format, and defaults.
