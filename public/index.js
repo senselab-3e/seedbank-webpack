@@ -7,7 +7,7 @@ import './index.css';
 const App = () => {
   return (
     <div>
-        <div>Welcome to my-webpack-react-starter</div>
+        <div>Index page</div>
         <img src={MyImage} />
     </div>
   );

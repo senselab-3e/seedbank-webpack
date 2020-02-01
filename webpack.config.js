@@ -3,19 +3,18 @@ const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './app/app.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        chunkFilename: '[id].js',
-        publicPath: ''
+        path: path.join(__dirname, 'public')
+        // path: path.resolve(__dirname, 'dist'),
+        // filename: 'bundle.js',
+        // chunkFilename: '[id].js',
+        // publicPath: ''
     },
-    resolve: {
-        extensions: ['.js', '.jsx']
-    },
-    devServer: {
-        port: 3000
-      },
+    // resolve: {
+    //     extensions: ['.js', '.jsx']
+    // },
     module: {
         rules: [
             {
@@ -57,9 +56,14 @@ module.exports = {
             }
         ]
     },
+    mode: 'development',
+    devServer: {
+        port: 3000,
+        contentBase: path.join(__dirname, 'public')
+      },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + '/src/index.html',
+            template: __dirname + '/public/index.html',
             filename: 'index.html',
             inject: 'body'
         })
