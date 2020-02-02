@@ -102,3 +102,10 @@ You have thousands of images and need to dynamically reference their paths.
 You want to include a small script like pace.js outside of the bundled code.
 Some library may be incompatible with Webpack and you have no other option but to include it as a <script> tag.
 Note that if you add a <script> that declares global variables, you also need to read the next section on using them.
+
+///
+
+maybe useful later researching multiple entrypoints: 
+ https://github.com/harrysolovay/rescripts : Take control of your create-react-app project configurations. No ejecting, no custom react-scripts fork, no limitations.
+
+ https://stackoverflow.com/questions/53480066/multiple-entry-points-by-using-create-react-app
