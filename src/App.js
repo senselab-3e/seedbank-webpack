@@ -5,7 +5,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useRouteMatch,
+  useParams
 } from "react-router-dom";
 
  function App() {
@@ -57,9 +59,9 @@ import {
 );
 }
 
-function EntryWay() {
-return <h2>EntryWay</h2>;
-}
+// function EntryWay() {
+// return <h2>EntryWay</h2>;
+// }
 
 function About() {
 return <h2>About</h2>;
@@ -76,6 +78,52 @@ function WelcomeWagon() {
 function Patches() {
   return <h2>Patches</h2>;
   }
+
+  function EntryWay() {
+    let { path, url } = useRouteMatch();
+    return (
+      <div>
+        <h2>EntryWay</h2>
+  
+        <ul>
+          <li>
+            <Link to={`${url}/auth`}>Authorization Page</Link>
+          </li>
+          <li>
+            <Link to={`${url}/events`}>
+              Props v. State
+            </Link>
+          </li>
+        </ul>
+  
+        {/* The Topics page has its own <Switch> with more routes
+            that build on the /topics URL path. You can think of the
+            2nd <Route> here as an "index" page for all topics, or
+            the page that is shown when no topic is selected */}
+        <Switch>
+          <Route exact path={path}>
+            <h3>please select path</h3>
+          </Route>
+          <Route path={`${path}/:entryId`}>
+            <Entry />
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
+
+  function Entry() {
+    // The <Route> that rendered this component has a
+    // path of `/topics/:topicId`. The `:topicId` portion
+    // of the URL indicates a placeholder that we can
+    // get from `useParams()`.
+    let { entryId } = useParams();
+  
+    return (
+      <div>
+        <h3>{entryId}</h3>
+      </div>
+    );
 
 
 
