@@ -10,15 +10,18 @@ import {
   useParams
 } from "react-router-dom";
 
- function App() {
+export default function App() {
   return (
     <Router>
     <div>
       <nav>
         <img class= "Cup-placeholder" src ={cup} alt='placeholderimage'></img>
         <ul>
+        <li>
+            <Link to="/">Home</Link>
+          </li>
           <li>
-            <Link to="/">EntryWay</Link>
+            <Link to="/entryway">EntryWay</Link>
           </li>
           <li>
             <Link to="/about3e">3E About</Link>
@@ -50,8 +53,11 @@ import {
         <Route path="/welcomewagon">
         <WelcomeWagon />
         </Route>
-        <Route path="/">
+        <Route path="/entryway">
           <EntryWay />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
       </Switch>
     </div>
@@ -62,6 +68,10 @@ import {
 // function EntryWay() {
 // return <h2>EntryWay</h2>;
 // }
+function Home() {
+  return <h2>Home</h2>;
+  }
+
 
 function About() {
 return <h2>About</h2>;
@@ -124,7 +134,4 @@ function Patches() {
         <h3>{entryId}</h3>
       </div>
     );
-
-
-
-export default App;
+  }
